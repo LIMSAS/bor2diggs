@@ -1,0 +1,6 @@
+coverage
+pytest
+pytest-cases
+pytest-cov
+pytest-datafiles
+pytest-sugar
