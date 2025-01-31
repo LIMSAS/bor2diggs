@@ -297,10 +297,6 @@ def convert_to_diggs(file_path):
         if unit != "-":
             ET.SubElement(property_element, "uom").text = unit
 
-        ET.SubElement(
-            property_element, "nullValue", {"reason": "missing"}
-        ).text = "9999"
-
         index += 1
 
     # add data values

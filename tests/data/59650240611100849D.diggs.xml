@@ -101,75 +101,64 @@
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">measured_time</propertyClass>
                       <uom>s</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop2" index="2">
                       <propertyName>DEPTH</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">measured_depth</propertyClass>
                       <uom>ft</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop3" index="3">
                       <propertyName>AS</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">penetration_rate</propertyClass>
                       <uom>ft/min</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop4" index="4">
                       <propertyName>EVP</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">missing</propertyClass>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop5" index="5">
                       <propertyName>EVR</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">event_new_rod</propertyClass>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop6" index="6">
                       <propertyName>TP</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_crowd_pressure</propertyClass>
                       <uom>psi</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop7" index="7">
                       <propertyName>IP</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_pressure</propertyClass>
                       <uom>psi</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop8" index="8">
                       <propertyName>TQ</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_torque_pressure</propertyClass>
                       <uom>psi</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop9" index="9">
                       <propertyName>HP</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">holdback_pressure</propertyClass>
                       <uom>psi</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop10" index="10">
                       <propertyName>RSP</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">rotation_shaft</propertyClass>
                       <uom>rpm</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                     <Property gml:id="prop11" index="11">
                       <propertyName>IF</propertyName>
                       <typeData>double</typeData>
                       <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_volume_rate</propertyClass>
                       <uom>gallon/min</uom>
-                      <nullValue reason="missing">9999</nullValue>
                     </Property>
                   </properties>
                 </PropertyParameters>
