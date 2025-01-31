@@ -44,6 +44,7 @@
           </glr:lrm>
         </LinearSpatialReferenceSystem>
       </linearReferencing>
+      <totalMeasuredDepth uom="ft">1.83</totalMeasuredDepth>
       <constructionMethod>
         <BoreholeConstructionMethod gml:id="cm_bh_TEST HOLE 1">
           <gml:name>Rotary drilling</gml:name>
