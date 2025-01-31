@@ -151,6 +151,13 @@ def convert_to_diggs(file_path):
     ET.SubElement(lrm_method, "glr:type").text = "absolute"
     ET.SubElement(lrm_method, "glr:units").text = "m"
 
+    # add totalMeasuredDepth
+    ET.SubElement(
+        borehole,
+        "totalMeasuredDepth",
+        {"uom": "ft"},
+    ).text = f"{bf.data.DEPTH.iat[-1]:g}"
+
     # add construction method
     construction_method = ET.SubElement(borehole, "constructionMethod")
     method_element = ET.SubElement(
