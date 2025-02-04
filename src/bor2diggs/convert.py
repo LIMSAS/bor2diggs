@@ -2,6 +2,9 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
 import borfile
+import pint
+
+ureg = pint.UnitRegistry()
 
 # Register necessary namespaces
 namespaces = {
@@ -24,6 +27,11 @@ def convert_to_diggs(file_path):
     project_ref = bf.description["project_ref"].replace(" ", "_")
     borehole_ref_id = borehole_ref.replace(" ", "_")
     project_ref_id = project_ref.replace(" ", "_")
+    depth_in_meter = (
+        ureg(f"{bf.data.DEPTH.iat[-1]} {bf.metadata['DEPTH']['unit']}")
+        .to("meter")
+        .magnitude
+    )
 
     for prefix, uri in namespaces.items():
         ET.register_namespace(prefix, uri)
@@ -94,9 +102,9 @@ def convert_to_diggs(file_path):
         altitude = float(bf.description["position"]["altitude"]["value"])
 
         # Format coordinates to 6 decimal places
-        coord_string = f"{latitude:.7f} {longitude:.7f} {altitude:.2f}"
-        pos_altitude = altitude - bf.data.DEPTH.iat[-1]
-        pos_string = f"{coord_string} {latitude:.7f} {longitude:.7f} {pos_altitude:.2f}"
+        coord_string = f"{latitude:.6f} {longitude:.6f} {altitude:.6f}"
+        pos_altitude = altitude - depth_in_meter
+        pos_string = f"{coord_string} {latitude:.6f} {longitude:.6f} {pos_altitude:.6f}"
     except ValueError:
         # If conversion fails, use a default or log an error
         print("Warning: Invalid coordinate data in header. Using default values.")
@@ -159,7 +167,7 @@ def convert_to_diggs(file_path):
     )
     ET.SubElement(lrm_method, "glr:name").text = "chainage"
     ET.SubElement(lrm_method, "glr:type").text = "absolute"
-    ET.SubElement(lrm_method, "glr:units").text = "ft"
+    ET.SubElement(lrm_method, "glr:units").text = bf.metadata["DEPTH"]["unit"]
 
     # add totalMeasuredDepth
     ET.SubElement(
