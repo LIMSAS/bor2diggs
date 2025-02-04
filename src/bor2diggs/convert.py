@@ -124,14 +124,15 @@ def convert_to_diggs(file_path):
         ET.SubElement(
             ET.SubElement(borehole, "centerLine"),
             "LinearExtent",
-            {"gml:id": f"cl_bh_{borehole_ref_id}"},
+            {
+                "gml:id": f"cl_bh_{borehole_ref_id}",
+                "srsDimension": "3",
+                "uomLabels": "deg deg m",
+                "srsName": "https://www.opengis.net/def/crs-compound?1=http://www.opengis.net/def/crs/EPSG/0/4326&2=http://www.opengis.net/def/crs/EPSG/0/5714",
+                "axisLabels": "latitude longitude height",
+            },
         ),
         "gml:posList",
-        {
-            "srsDimension": "3",
-            "uomLabels": "dega dega m",
-            "axisLabels": "latitude longitude height",
-        },
     ).text = pos_string
 
     # add linear referencing
