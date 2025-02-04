@@ -17,7 +17,7 @@ requires-python = ">=3.9"
 dependencies = [
     "borfile",
     "click",
-    "lxml"
+    "pint"
 ]
 
 [project.urls]
