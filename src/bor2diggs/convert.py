@@ -46,18 +46,24 @@ def convert_to_diggs(file_path):
     doc_info_element = ET.SubElement(
         ET.SubElement(root, "documentInformation"),
         "DocumentInformation",
-        {"gml:id": f"di_{bf.description['filename']}"},
+        {"gml:id": f"di_{bf.description['filename']}.xml"},
     )
+    ET.SubElement(
+        doc_info_element,
+        "gml:description",
+    ).text = f"Data exported from {bf.description['filename']}.bor"
     ET.SubElement(doc_info_element, "creationDate").text = bf.description["creation"]
 
     # Add source software information
+    sa_name = "bor2diggs"
+    sa_version = "beta"
     software_application_element = ET.SubElement(
-        ET.SubElement(root, "sourceSoftware"),
+        ET.SubElement(doc_info_element, "sourceSoftware"),
         "SoftwareApplication",
-        {"gml:id": "bor2diggs"},
+        {"gml:id": f"sa_{sa_name}-{sa_version}"},
     )
-    ET.SubElement(software_application_element, "gml:name").text = "bor2diggs"
-    ET.SubElement(software_application_element, "version").text = "beta"
+    ET.SubElement(software_application_element, "gml:name").text = sa_name
+    ET.SubElement(software_application_element, "version").text = sa_version
 
     # Add project information
     project_element = ET.SubElement(
