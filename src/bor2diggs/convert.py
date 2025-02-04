@@ -85,7 +85,7 @@ def convert_to_diggs(file_path):
     )
     ET.SubElement(borehole, "gml:name").text = borehole_ref
     ET.SubElement(borehole, "investigationTarget").text = "Natural Ground"
-    ET.SubElement(borehole, "projectRef", {"xlink:href": f"pr_{project_ref_id}"})
+    ET.SubElement(borehole, "projectRef", {"xlink:href": f"#pr_{project_ref_id}"})
 
     # Convert coordinate strings to floats and format them
     try:
