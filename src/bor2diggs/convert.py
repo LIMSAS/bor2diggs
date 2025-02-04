@@ -275,17 +275,15 @@ def convert_to_diggs(file_path):
     time_domain = ET.SubElement(result, "timeDomain")
     time_position_list = ET.SubElement(
         time_domain,
-        "TimePositionList",
+        "TimeIntervalList",
         {"gml:id": f"tpl_{bf.description['filename']}", "unit": "second"},
     )
-    positions = ET.SubElement(time_position_list, "timePositionList")
+    positions = ET.SubElement(time_position_list, "timeIntervalList")
     # Join all timestamps with a space and wrap every 5 timestamps
     timestamps = list(f"{t:g}" for t in bf.data.index.array)
-    wrapped_timestamps = (
-        [" "]
-        + [" ".join(timestamps[i : i + 5]) for i in range(0, len(timestamps), 5)]
-        + [""]
-    )
+    wrapped_timestamps = [
+        " ".join(timestamps[i : i + 12]) for i in range(0, len(timestamps), 12)
+    ] + [""]
     positions.text = "\n                ".join(wrapped_timestamps)
 
     # add result set
