@@ -312,5 +312,9 @@ def convert_to_diggs(file_path):
     data_values.text = bf.to_csv(header=False, index=False).strip()
 
     # Convert the XML to a pretty-printed string
-    xml_diggs = minidom.parseString(ET.tostring(root)).toprettyxml(indent="  ")
+    xml_diggs = (
+        minidom.parseString(ET.tostring(root))
+        .toprettyxml(indent="    ", encoding="UTF-8")
+        .decode()
+    )
     return xml_diggs
