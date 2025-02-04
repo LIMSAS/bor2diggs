@@ -28,6 +28,7 @@ def convert_to_diggs(file_path):
         "Diggs",
         {
             "xmlns": "http://diggsml.org/schemas/2.6",
+            "xmlns:diggs": "http://diggsml.org/schemas/2.6",
             "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "xmlns:xlink": "http://www.w3.org/1999/xlink",
             "xmlns:gml": "http://www.opengis.net/gml/3.2",
@@ -36,9 +37,8 @@ def convert_to_diggs(file_path):
             "xmlns:glrov": "http://www.opengis.net/gml/3.3/lrov",
             "xmlns:diggs_geo": "http://diggsml.org/schemas/2.6/geotechnical",
             "xmlns:witsml": "http://www.witsml.org/schemas/131",
-            "xmlns:diggs": "http://diggsml.org/schemas/2.6",
             "xsi:schemaLocation": "http://diggsml.org/schemas/2.6 https://diggsml.org/schema-dev/Diggs.xsd",
-            "gml:id": "Github_Exported",
+            "gml:id": "bor2diggs",
         },
     )
 
