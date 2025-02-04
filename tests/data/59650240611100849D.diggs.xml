@@ -1,169 +1,164 @@
-<?xml version="1.0" ?>
-<Diggs xmlns="http://diggsml.org/schemas/2.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:g3.3="http://www.opengis.net/gml/3.3/ce" xmlns:glr="http://www.opengis.net/gml/3.3/lr" xmlns:glrov="http://www.opengis.net/gml/3.3/lrov" xmlns:diggs_geo="http://diggsml.org/schemas/2.6/geotechnical" xmlns:witsml="http://www.witsml.org/schemas/131" xmlns:diggs="http://diggsml.org/schemas/2.6" xsi:schemaLocation="http://diggsml.org/schemas/2.6 https://diggsml.org/schema-dev/Diggs.xsd" gml:id="Github_Exported">
-  <documentInformation>
-    <DocumentInformation gml:id="di_59650240611100849D">
-      <creationDate>2024-06-11T10:08:49-05:00</creationDate>
-    </DocumentInformation>
-  </documentInformation>
-  <sourceSoftware>
-    <SoftwareApplication gml:id="bor2diggs">
-      <gml:name>bor2diggs</gml:name>
-      <version>beta</version>
-    </SoftwareApplication>
-  </sourceSoftware>
-  <project>
-    <Project gml:id="pr_LIM">
-      <gml:name>LIM</gml:name>
-    </Project>
-  </project>
-  <samplingFeature>
-    <Borehole gml:id="id_TEST HOLE 1">
-      <gml:name>TEST HOLE 1</gml:name>
-      <investigationTarget>Natural Ground</investigationTarget>
-      <projectRef xlink:href="pr_LIM"/>
-      <referencePoint>
-        <PointLocation gml:id="pl_bh_TEST HOLE 1">
-          <gml:pos srsDimension="3" uomLabels="dega dega m" axisLabels="latitude longitude height">38.850429 -97.619629 378.00</gml:pos>
-        </PointLocation>
-      </referencePoint>
-      <centerLine>
-        <LinearExtent gml:id="cl_bh_TEST HOLE 1">
-          <gml:posList srsDimension="3" uomLabels="dega dega m" axisLabels="latitude longitude height">38.850429 -97.619629 378.00 38.850429 -97.619629 376.17</gml:posList>
-        </LinearExtent>
-      </centerLine>
-      <linearReferencing>
-        <LinearSpatialReferenceSystem gml:id="lr_bh_TEST HOLE 1">
-          <gml:identifier codeSpace="DIGGS">urn:x-diggs:def:fi:DIGGSINC:lr_bh_TEST HOLE 1</gml:identifier>
-          <glr:linearElement xlink:href="#cl_bh_TEST HOLE 1"/>
-          <glr:lrm>
-            <glr:LinearReferencingMethod gml:id="lrm_bh_TEST HOLE 1">
-              <glr:name>chainage</glr:name>
-              <glr:type>absolute</glr:type>
-              <glr:units>m</glr:units>
-            </glr:LinearReferencingMethod>
-          </glr:lrm>
-        </LinearSpatialReferenceSystem>
-      </linearReferencing>
-      <totalMeasuredDepth uom="ft">1.83</totalMeasuredDepth>
-      <constructionMethod>
-        <BoreholeConstructionMethod gml:id="cm_bh_TEST HOLE 1">
-          <gml:name>Rotary drilling</gml:name>
-          <location>
-            <LinearExtent gml:id="le_cm_bh_TEST HOLE 1">
-              <gml:posList srsName="#lr_bh_TEST HOLE 1" srsDimension="1">0 1.83</gml:posList>
-            </LinearExtent>
-          </location>
-          <constructionEquipment>
-            <DrillRig gml:id="3230DT"/>
-          </constructionEquipment>
-          <cuttingToolInfo>
-            <CuttingTool>
-              <gml:name>Tricone bit</gml:name>
-              <toolOuterDiameter uom="inch">3.62</toolOuterDiameter>
-            </CuttingTool>
-          </cuttingToolInfo>
-        </BoreholeConstructionMethod>
-      </constructionMethod>
-    </Borehole>
-  </samplingFeature>
-  <measurement>
-    <MeasurementWhileDrilling gml:id="mwd_59650240611100849D">
-      <gml:name>MWD_59650240611100849D</gml:name>
-      <investigationTarget>Natural Ground</investigationTarget>
-      <projectRef xlink:href="#pr_LIM"/>
-      <samplingFeatureRef xlink:href="#bh_TEST HOLE 1"/>
-      <outcome>
-        <MWDResult gml:id="mwdr_59650240611100849D">
-          <timeDomain>
-            <TimePositionList gml:id="tpl_59650240611100849D" unit="second">
-              <timePositionList> 
-                0 217.4 218.3 219.3 220.3
-                221.3 222.2 223.1 224.1 225
-                225.9 226.8 227.7 228.6 244.3
-                245.2 246.1 247 247.9 248.8
-                249.7 250.6 251.5 252.4 253.3
-                254.2 255.1 256 256.9 257.799
-                258.7 259.6 260.5 261.4 262.3
-                264.9 265.8 266.8 267.8 268.8
-                269.8 270.8 271.8 272.8 273.8
-                274.8 275.8 276.8 277.8 278.8
-                279.8 280.8 281.8 758.5
-                </timePositionList>
-            </TimePositionList>
-          </timeDomain>
-          <results>
-            <ResultSet>
-              <parameters>
-                <PropertyParameters gml:id="params1">
-                  <properties>
-                    <Property gml:id="prop1" index="1">
-                      <propertyName>time</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">measured_time</propertyClass>
-                      <uom>s</uom>
-                    </Property>
-                    <Property gml:id="prop2" index="2">
-                      <propertyName>DEPTH</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">measured_depth</propertyClass>
-                      <uom>ft</uom>
-                    </Property>
-                    <Property gml:id="prop3" index="3">
-                      <propertyName>AS</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">penetration_rate</propertyClass>
-                      <uom>ft/min</uom>
-                    </Property>
-                    <Property gml:id="prop4" index="4">
-                      <propertyName>EVP</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">missing</propertyClass>
-                    </Property>
-                    <Property gml:id="prop5" index="5">
-                      <propertyName>EVR</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">event_new_rod</propertyClass>
-                    </Property>
-                    <Property gml:id="prop6" index="6">
-                      <propertyName>TP</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_crowd_pressure</propertyClass>
-                      <uom>psi</uom>
-                    </Property>
-                    <Property gml:id="prop7" index="7">
-                      <propertyName>IP</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_pressure</propertyClass>
-                      <uom>psi</uom>
-                    </Property>
-                    <Property gml:id="prop8" index="8">
-                      <propertyName>TQ</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_torque_pressure</propertyClass>
-                      <uom>psi</uom>
-                    </Property>
-                    <Property gml:id="prop9" index="9">
-                      <propertyName>HP</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">holdback_pressure</propertyClass>
-                      <uom>psi</uom>
-                    </Property>
-                    <Property gml:id="prop10" index="10">
-                      <propertyName>RSP</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">rotation_shaft</propertyClass>
-                      <uom>rpm</uom>
-                    </Property>
-                    <Property gml:id="prop11" index="11">
-                      <propertyName>IF</propertyName>
-                      <typeData>double</typeData>
-                      <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_volume_rate</propertyClass>
-                      <uom>gallon/min</uom>
-                    </Property>
-                  </properties>
-                </PropertyParameters>
-              </parameters>
-              <dataValues cs="," ts=" " decimal=".">0,0,0,0,293.9748,2.9412,11.2956,317.5326,0,0
+<?xml version="1.0" encoding="UTF-8"?>
+<Diggs xmlns="http://diggsml.org/schemas/2.6" xmlns:diggs="http://diggsml.org/schemas/2.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:g3.3="http://www.opengis.net/gml/3.3/ce" xmlns:glr="http://www.opengis.net/gml/3.3/lr" xmlns:glrov="http://www.opengis.net/gml/3.3/lrov" xmlns:diggs_geo="http://diggsml.org/schemas/2.6/geotechnical" xmlns:witsml="http://www.witsml.org/schemas/131" xsi:schemaLocation="http://diggsml.org/schemas/2.6 https://diggsml.org/schema-dev/Diggs.xsd" gml:id="bor2diggs">
+    <documentInformation>
+        <DocumentInformation gml:id="di_59650240611100849D.xml">
+            <gml:description>Data exported from 59650240611100849D.bor</gml:description>
+            <creationDate>2024-06-11T10:08:49-05:00</creationDate>
+            <sourceSoftware>
+                <SoftwareApplication gml:id="sa_bor2diggs-beta">
+                    <gml:name>bor2diggs</gml:name>
+                    <version>beta</version>
+                </SoftwareApplication>
+            </sourceSoftware>
+        </DocumentInformation>
+    </documentInformation>
+    <project>
+        <Project gml:id="pr_LIM">
+            <gml:name>LIM</gml:name>
+        </Project>
+    </project>
+    <samplingFeature>
+        <Borehole gml:id="bh_TEST_HOLE_1">
+            <gml:name>TEST HOLE 1</gml:name>
+            <role>
+                <Role>
+                    <rolePerformed codeSpace="https://diggsml.org/def/codes/DIGGS/0.1/roles.xml">operator</rolePerformed>
+                    <businessAssociate>
+                        <BusinessAssociate gml:id="ba_59650">
+                            <gml:name>LIM</gml:name>
+                        </BusinessAssociate>
+                    </businessAssociate>
+                </Role>
+            </role>
+            <investigationTarget>Natural Ground</investigationTarget>
+            <projectRef xlink:href="#pr_LIM"/>
+            <referencePoint>
+                <PointLocation gml:id="pl_bh_TEST_HOLE_1" srsName="https://www.opengis.net/def/crs-compound?1=http://www.opengis.net/def/crs/EPSG/0/4326&amp;2=http://www.opengis.net/def/crs/EPSG/0/5714" srsDimension="3" uomLabels="deg deg m" axisLabels="latitude longitude height">
+                    <gml:pos>38.850429 -97.619629 378.000000</gml:pos>
+                </PointLocation>
+            </referencePoint>
+            <centerLine>
+                <LinearExtent gml:id="cl_bh_TEST_HOLE_1" srsDimension="3" uomLabels="deg deg m" srsName="https://www.opengis.net/def/crs-compound?1=http://www.opengis.net/def/crs/EPSG/0/4326&amp;2=http://www.opengis.net/def/crs/EPSG/0/5714" axisLabels="latitude longitude height">
+                    <gml:posList>38.850429 -97.619629 378.000000 38.850429 -97.619629 377.442216</gml:posList>
+                </LinearExtent>
+            </centerLine>
+            <linearReferencing>
+                <LinearSpatialReferenceSystem gml:id="lr_bh_TEST_HOLE_1">
+                    <gml:identifier codeSpace="urn:x-def:authority:DIGGS">urn:x-diggs:def:fi:DIGGSINC:lr_bh_TEST_HOLE_1</gml:identifier>
+                    <glr:linearElement xlink:href="#cl_bh_TEST_HOLE_1"/>
+                    <glr:lrm>
+                        <glr:LinearReferencingMethod gml:id="lrm_bh_TEST_HOLE_1">
+                            <glr:name>chainage</glr:name>
+                            <glr:type>absolute</glr:type>
+                            <glr:units>ft</glr:units>
+                        </glr:LinearReferencingMethod>
+                    </glr:lrm>
+                </LinearSpatialReferenceSystem>
+            </linearReferencing>
+            <totalMeasuredDepth uom="ft">1.83</totalMeasuredDepth>
+            <constructionMethod>
+                <BoreholeConstructionMethod gml:id="cm_bh_TEST_HOLE_1">
+                    <gml:name>Rotary drilling</gml:name>
+                    <location>
+                        <LinearExtent gml:id="le_cm_bh_TEST_HOLE_1">
+                            <gml:posList srsName="#lr_bh_TEST_HOLE_1" srsDimension="1">0 1.83</gml:posList>
+                        </LinearExtent>
+                    </location>
+                    <constructionEquipment>
+                        <DrillRig gml:id="dr_3230DT">
+                            <gml:name>3230DT</gml:name>
+                        </DrillRig>
+                    </constructionEquipment>
+                    <cuttingToolInfo>
+                        <CuttingTool>
+                            <gml:name>Tricone bit</gml:name>
+                            <toolOuterDiameter uom="in">3.62</toolOuterDiameter>
+                        </CuttingTool>
+                    </cuttingToolInfo>
+                </BoreholeConstructionMethod>
+            </constructionMethod>
+        </Borehole>
+    </samplingFeature>
+    <measurement>
+        <MeasurementWhileDrilling gml:id="mwd_59650240611100849D">
+            <gml:name>MWD_59650240611100849D</gml:name>
+            <investigationTarget>Natural Ground</investigationTarget>
+            <projectRef xlink:href="#pr_LIM"/>
+            <samplingFeatureRef xlink:href="#bh_TEST_HOLE_1"/>
+            <outcome>
+                <MWDResult gml:id="mwdr_59650240611100849D">
+                    <timeDomain>
+                        <TimeIntervalList gml:id="tpl_59650240611100849D" unit="second">
+                            <timeIntervalList>0 217.4 218.3 219.3 220.3 221.3 222.2 223.1 224.1 225 225.9 226.8
+                227.7 228.6 244.3 245.2 246.1 247 247.9 248.8 249.7 250.6 251.5 252.4
+                253.3 254.2 255.1 256 256.9 257.799 258.7 259.6 260.5 261.4 262.3 264.9
+                265.8 266.8 267.8 268.8 269.8 270.8 271.8 272.8 273.8 274.8 275.8 276.8
+                277.8 278.8 279.8 280.8 281.8 758.5
+                </timeIntervalList>
+                        </TimeIntervalList>
+                    </timeDomain>
+                    <results>
+                        <ResultSet>
+                            <parameters>
+                                <PropertyParameters gml:id="params1">
+                                    <properties>
+                                        <Property gml:id="prop1" index="1">
+                                            <propertyName>Measured Depth</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">measured_depth</propertyClass>
+                                            <uom>ft</uom>
+                                        </Property>
+                                        <Property gml:id="prop2" index="2">
+                                            <propertyName>Penetration rate</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">penetration_rate</propertyClass>
+                                            <uom>ft/min</uom>
+                                        </Property>
+                                        <Property gml:id="prop3" index="3">
+                                            <propertyName>New rod event</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">event_new_rod</propertyClass>
+                                        </Property>
+                                        <Property gml:id="prop4" index="4">
+                                            <propertyName>Hydraulic crowd operating pressure</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_crowd_pressure</propertyClass>
+                                            <uom>psi</uom>
+                                        </Property>
+                                        <Property gml:id="prop5" index="5">
+                                            <propertyName>Fluid injection pressure</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_pressure</propertyClass>
+                                            <uom>psi</uom>
+                                        </Property>
+                                        <Property gml:id="prop6" index="6">
+                                            <propertyName>Hydraulic torque operating pressure</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_torque_pressure</propertyClass>
+                                            <uom>psi</uom>
+                                        </Property>
+                                        <Property gml:id="prop7" index="7">
+                                            <propertyName>Holdback pressure</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">holdback_pressure</propertyClass>
+                                            <uom>psi</uom>
+                                        </Property>
+                                        <Property gml:id="prop8" index="8">
+                                            <propertyName>Shaft rotational speed</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">rotation_shaft</propertyClass>
+                                            <uom>rpm</uom>
+                                        </Property>
+                                        <Property gml:id="prop9" index="9">
+                                            <propertyName>Fluid injection volumetric flow rate, pumped inflow</propertyName>
+                                            <typeData>double</typeData>
+                                            <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_volume_rate</propertyClass>
+                                            <uom>gal[US]/min</uom>
+                                        </Property>
+                                    </properties>
+                                </PropertyParameters>
+                            </parameters>
+                            <dataValues cs="," ts=" " decimal=".">0,0,0,0,293.9748,2.9412,11.2956,317.5326,0,0
 0.04,0.01002,0,0,264.9976,400.0032,306.5098,288.7766,109.4523,11.1758
 0.07,2.20163,0,0,267.652,394.1208,269.5527,288.3342,108.885,11.764
 0.11,2.17766,0,0,271.6336,420.5916,276.413,287.56,108.8301,8.823
@@ -217,10 +212,13 @@
 1.74,2.07956,0,0,333.5696,308.826,657.049,275.7258,103.2303,1.1764
 1.78,2.07956,0,0,322.399,270.5904,559.2344,273.8456,103.2852,1.7646
 1.83,1.79242,0,0,365.8648,2.9412,13.066,369.7358,0,0</dataValues>
-            </ResultSet>
-          </results>
-        </MWDResult>
-      </outcome>
-    </MeasurementWhileDrilling>
-  </measurement>
+                        </ResultSet>
+                    </results>
+                </MWDResult>
+            </outcome>
+            <procedure>
+                <MWDProcedure gml:id="mwd1"/>
+            </procedure>
+        </MeasurementWhileDrilling>
+    </measurement>
 </Diggs>
