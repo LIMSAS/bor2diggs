@@ -1,4 +1,3 @@
 borfile
 Click
-lxml
 pint
