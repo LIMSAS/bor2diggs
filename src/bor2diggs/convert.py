@@ -296,8 +296,7 @@ def convert_to_diggs(file_path):
     )
     properties = ET.SubElement(property_params, "properties")
 
-    property_classes = {
-        "time": "measured_time",
+    property_codes = {
         "DEPTH": "measured_depth",
         "AS": "penetration_rate",
         "RV": "vibration_acceleration",
@@ -315,9 +314,31 @@ def convert_to_diggs(file_path):
         "GEAR": "gear_number",
     }
 
+    property_names = {
+        "DEPTH": "Measured Depth",
+        "AS": "Penetration rate",
+        "RV": "Vibration acceleration",
+        "EVR": "New rod event",
+        "TP": "Hydraulic crowd operating pressure",
+        "TPAF": "Crowd or downward thrust",
+        "TQ": "Hydraulic torque operating pressure",
+        "TQAT": "Torque",
+        "HP": "Holdback pressure",
+        "SP": "Hammering pressure",
+        "IP": "Fluid injection pressure",
+        "IF": "Fluid injection volumetric flow rate, pumped inflow",
+        "OF": "Fluid return volumetric flow rate, returned outflow",
+        "RSP": "Shaft rotational speed",
+        "GEAR": "Gear Number",
+    }
+
     index = 1
     for name, info in bf.metadata.items():
         if name == "time":
+            continue
+
+        # bor does not handle EVP well
+        if name == "EVP":
             continue
 
         unit = info.get("unit", "-")
@@ -325,15 +346,14 @@ def convert_to_diggs(file_path):
         property_element = ET.SubElement(
             properties, "Property", {"gml:id": f"prop{index}", "index": str(index)}
         )
-        ET.SubElement(property_element, "propertyName").text = name
+        ET.SubElement(property_element, "propertyName").text = property_names[name]
         ET.SubElement(property_element, "typeData").text = "double"
 
-        property_class = property_classes.get(name, "missing")
         ET.SubElement(
             property_element,
             "propertyClass",
             {"codeSpace": "http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml"},
-        ).text = property_class
+        ).text = property_codes.get(name, "missing")
 
         if unit != "-":
             ET.SubElement(property_element, "uom").text = get_uom(unit)
