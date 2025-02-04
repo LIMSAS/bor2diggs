@@ -143,7 +143,7 @@ def convert_to_diggs(file_path):
     )
 
     ET.SubElement(
-        lsrs, "gml:identifier", {"codeSpace": "DIGGS"}
+        lsrs, "gml:identifier", {"codeSpace": "urn:x-def:authority:DIGGS"}
     ).text = f"urn:x-diggs:def:fi:DIGGSINC:lr_bh_{borehole_ref_id}"
 
     ET.SubElement(
