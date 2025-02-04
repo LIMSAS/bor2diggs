@@ -159,7 +159,7 @@ def convert_to_diggs(file_path):
     )
     ET.SubElement(lrm_method, "glr:name").text = "chainage"
     ET.SubElement(lrm_method, "glr:type").text = "absolute"
-    ET.SubElement(lrm_method, "glr:units").text = "m"
+    ET.SubElement(lrm_method, "glr:units").text = "ft"
 
     # add totalMeasuredDepth
     ET.SubElement(
