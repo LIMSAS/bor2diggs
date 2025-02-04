@@ -97,6 +97,22 @@ def convert_to_diggs(file_path):
         {"gml:id": f"bh_{borehole_ref_id}"},
     )
     ET.SubElement(borehole, "gml:name").text = borehole_ref
+    # add role
+    role = ET.SubElement(ET.SubElement(borehole, "role"), "Role")
+    ET.SubElement(
+        role,
+        "rolePerformed",
+        {"codeSpace": "https://diggsml.org/def/codes/DIGGS/0.1/roles.xml"},
+    ).text = "operator"
+    ET.SubElement(
+        ET.SubElement(
+            ET.SubElement(role, "businessAssociate"),
+            "BusinessAssociate",
+            {"gml:id": f"ba_{bf.description['device']['serial']}"},
+        ),
+        "gml:name",
+    ).text = bf.description["operator"]
+
     ET.SubElement(borehole, "investigationTarget").text = "Natural Ground"
     ET.SubElement(borehole, "projectRef", {"xlink:href": f"#pr_{project_ref_id}"})
 
