@@ -317,6 +317,9 @@ def convert_to_diggs(file_path):
 
     index = 1
     for name, info in bf.metadata.items():
+        if name == "time":
+            continue
+
         unit = info.get("unit", "-")
 
         property_element = ET.SubElement(
