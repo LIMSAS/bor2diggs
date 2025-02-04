@@ -3,6 +3,8 @@ bor2diggs
 
 Convert `BOR files`_ to `DIGGS`_
 
+Demo : `bor2diggs-demo.lim.eu`_
+
 Installation
 ------------
 
@@ -29,5 +31,6 @@ Usage
   $ bor2diggs file.bor -o file.diggs
 
 
+.. _`bor2diggs-demo.lim.eu`: https://bor2diggs-demo.lim.eu
 .. _`BOR files`: https://bor-form.at/en/
 .. _`DIGGS`: https://www.geoinstitute.org/special-projects/diggs
