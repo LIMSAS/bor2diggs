@@ -20,6 +20,10 @@ namespaces = {
 
 def convert_to_diggs(file_path):
     bf = borfile.read(file_path)
+    borehole_ref = bf.description["borehole_ref"]
+    project_ref = bf.description["project_ref"].replace(" ", "_")
+    borehole_ref_id = borehole_ref.replace(" ", "_")
+    project_ref_id = project_ref.replace(" ", "_")
 
     for prefix, uri in namespaces.items():
         ET.register_namespace(prefix, uri)
@@ -69,21 +73,19 @@ def convert_to_diggs(file_path):
     project_element = ET.SubElement(
         ET.SubElement(root, "project"),
         "Project",
-        {"gml:id": f"pr_{bf.description['project_ref']}"},
+        {"gml:id": f"pr_{project_ref_id}"},
     )
-    ET.SubElement(project_element, "gml:name").text = bf.description["project_ref"]
+    ET.SubElement(project_element, "gml:name").text = project_ref
 
     # # Add sampling feature (borehole)
     borehole = ET.SubElement(
         ET.SubElement(root, "samplingFeature"),
         "Borehole",
-        {"gml:id": f"id_{bf.description['borehole_ref']}"},
+        {"gml:id": f"bh_{borehole_ref_id}"},
     )
-    ET.SubElement(borehole, "gml:name").text = bf.description["borehole_ref"]
+    ET.SubElement(borehole, "gml:name").text = borehole_ref
     ET.SubElement(borehole, "investigationTarget").text = "Natural Ground"
-    ET.SubElement(
-        borehole, "projectRef", {"xlink:href": f"pr_{bf.description['project_ref']}"}
-    )
+    ET.SubElement(borehole, "projectRef", {"xlink:href": f"pr_{project_ref_id}"})
 
     # Convert coordinate strings to floats and format them
     try:
@@ -106,7 +108,7 @@ def convert_to_diggs(file_path):
         ET.SubElement(
             ET.SubElement(borehole, "referencePoint"),
             "PointLocation",
-            {"gml:id": f"pl_bh_{bf.description['borehole_ref']}"},
+            {"gml:id": f"pl_bh_{borehole_ref_id}"},
         ),
         "gml:pos",
         {
@@ -121,7 +123,7 @@ def convert_to_diggs(file_path):
         ET.SubElement(
             ET.SubElement(borehole, "centerLine"),
             "LinearExtent",
-            {"gml:id": f"cl_bh_{bf.description['borehole_ref']}"},
+            {"gml:id": f"cl_bh_{borehole_ref_id}"},
         ),
         "gml:posList",
         {
@@ -135,23 +137,23 @@ def convert_to_diggs(file_path):
     lsrs = ET.SubElement(
         ET.SubElement(borehole, "linearReferencing"),
         "LinearSpatialReferenceSystem",
-        {"gml:id": f"lr_bh_{bf.description['borehole_ref']}"},
+        {"gml:id": f"lr_bh_{borehole_ref_id}"},
     )
 
     ET.SubElement(
         lsrs, "gml:identifier", {"codeSpace": "DIGGS"}
-    ).text = f"urn:x-diggs:def:fi:DIGGSINC:lr_bh_{bf.description['borehole_ref']}"
+    ).text = f"urn:x-diggs:def:fi:DIGGSINC:lr_bh_{borehole_ref_id}"
 
     ET.SubElement(
         lsrs,
         "glr:linearElement",
-        {"xlink:href": f"#cl_bh_{bf.description['borehole_ref']}"},
+        {"xlink:href": f"#cl_bh_{borehole_ref_id}"},
     )
 
     lrm_method = ET.SubElement(
         ET.SubElement(lsrs, "glr:lrm"),
         "glr:LinearReferencingMethod",
-        {"gml:id": f"lrm_bh_{bf.description['borehole_ref']}"},
+        {"gml:id": f"lrm_bh_{borehole_ref_id}"},
     )
     ET.SubElement(lrm_method, "glr:name").text = "chainage"
     ET.SubElement(lrm_method, "glr:type").text = "absolute"
@@ -169,7 +171,7 @@ def convert_to_diggs(file_path):
     method_element = ET.SubElement(
         construction_method,
         "BoreholeConstructionMethod",
-        {"gml:id": f"cm_bh_{bf.description['borehole_ref']}"},
+        {"gml:id": f"cm_bh_{borehole_ref_id}"},
     )
     ET.SubElement(method_element, "gml:name").text = borfile.codes.DRILLING_METHOD[
         bf.description["drilling"]["method"]
@@ -180,13 +182,13 @@ def convert_to_diggs(file_path):
     linear_extent = ET.SubElement(
         location,
         "LinearExtent",
-        {"gml:id": f"le_cm_bh_{bf.description['borehole_ref']}"},
+        {"gml:id": f"le_cm_bh_{borehole_ref_id}"},
     )
 
     ET.SubElement(
         linear_extent,
         "gml:posList",
-        {"srsName": f"#lr_bh_{bf.description['borehole_ref']}", "srsDimension": "1"},
+        {"srsName": f"#lr_bh_{borehole_ref_id}", "srsDimension": "1"},
     ).text = f"{bf.data.DEPTH.iat[0]:g} {bf.data.DEPTH.iat[-1]:g}"
 
     # Add DrillRig
@@ -222,13 +224,11 @@ def convert_to_diggs(file_path):
     )
     ET.SubElement(mwd, "gml:name").text = f"MWD_{bf.description['filename']}"
     ET.SubElement(mwd, "investigationTarget").text = "Natural Ground"
-    ET.SubElement(
-        mwd, "projectRef", {"xlink:href": f"#pr_{bf.description['project_ref']}"}
-    )
+    ET.SubElement(mwd, "projectRef", {"xlink:href": f"#pr_{project_ref_id}"})
     ET.SubElement(
         mwd,
         "samplingFeatureRef",
-        {"xlink:href": f"#bh_{bf.description['borehole_ref']}"},
+        {"xlink:href": f"#bh_{borehole_ref_id}"},
     )
 
     # add mwd result
