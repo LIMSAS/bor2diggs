@@ -94,9 +94,9 @@ def convert_to_diggs(file_path):
         altitude = float(bf.description["position"]["altitude"]["value"])
 
         # Format coordinates to 6 decimal places
-        coord_string = f"{latitude:.6f} {longitude:.6f} {altitude:.2f}"
+        coord_string = f"{latitude:.7f} {longitude:.7f} {altitude:.2f}"
         pos_altitude = altitude - bf.data.DEPTH.iat[-1]
-        pos_string = f"{coord_string} {latitude:.6f} {longitude:.6f} {pos_altitude:.2f}"
+        pos_string = f"{coord_string} {latitude:.7f} {longitude:.7f} {pos_altitude:.2f}"
     except ValueError:
         # If conversion fails, use a default or log an error
         print("Warning: Invalid coordinate data in header. Using default values.")
@@ -108,14 +108,15 @@ def convert_to_diggs(file_path):
         ET.SubElement(
             ET.SubElement(borehole, "referencePoint"),
             "PointLocation",
-            {"gml:id": f"pl_bh_{borehole_ref_id}"},
+            {
+                "gml:id": f"pl_bh_{borehole_ref_id}",
+                "srsName": "https://www.opengis.net/def/crs-compound?1=http://www.opengis.net/def/crs/EPSG/0/4326&2=http://www.opengis.net/def/crs/EPSG/0/5714",
+                "srsDimension": "3",
+                "uomLabels": "deg deg m",
+                "axisLabels": "latitude longitude height",
+            },
         ),
         "gml:pos",
-        {
-            "srsDimension": "3",
-            "uomLabels": "dega dega m",
-            "axisLabels": "latitude longitude height",
-        },
     ).text = coord_string
 
     # add center line
