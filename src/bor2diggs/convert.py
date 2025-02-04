@@ -21,6 +21,11 @@ namespaces = {
 }
 
 
+def get_uom(unit):
+    codes = {"inch": "in", "gallon/min": "gal[US]/min"}
+    return codes.get(unit, unit)
+
+
 def convert_to_diggs(file_path):
     bf = borfile.read(file_path)
     borehole_ref = bf.description["borehole_ref"]
@@ -225,7 +230,7 @@ def convert_to_diggs(file_path):
             ET.SubElement(
                 cuttingtool_el,
                 "toolOuterDiameter",
-                {"uom": bf.description["drilling"]["tool_diameter"]["@unit"]},
+                {"uom": get_uom(bf.description["drilling"]["tool_diameter"]["@unit"])},
             ).text = bf.description["drilling"]["tool_diameter"]["value"]
 
     # add measurement
@@ -314,7 +319,7 @@ def convert_to_diggs(file_path):
         ).text = property_class
 
         if unit != "-":
-            ET.SubElement(property_element, "uom").text = unit
+            ET.SubElement(property_element, "uom").text = get_uom(unit)
 
         index += 1
 
