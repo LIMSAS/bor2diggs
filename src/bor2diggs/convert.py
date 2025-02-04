@@ -196,10 +196,13 @@ def convert_to_diggs(file_path):
     # Add DrillRig
     if bf.description["drilling"].get("machine_ref"):
         ET.SubElement(
-            ET.SubElement(method_element, "constructionEquipment"),
-            "DrillRig",
-            {"gml:id": bf.description["drilling"]["machine_ref"]},
-        )
+            ET.SubElement(
+                ET.SubElement(method_element, "constructionEquipment"),
+                "DrillRig",
+                {"gml:id": f"dr_{bf.description['drilling']['machine_ref']}"},
+            ),
+            "gml:name",
+        ).text = bf.description["drilling"]["machine_ref"]
 
     # Add CuttingTool
     if bf.description["drilling"].get("tool"):
