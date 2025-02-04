@@ -1,0 +1,192 @@
+[
+ {
+  "code": "alteration_index",
+  "name": "Alteration index",
+  "type": "double"
+ },
+ {
+  "code": "calibration_flag",
+  "name": "Calibration flag",
+  "type": "boolean"
+ },
+ {
+  "code": "crowd_downward_thrust",
+  "name": "Crowd or downward thrust",
+  "type": "double"
+ },
+ {
+  "code": "crowd_pressure",
+  "name": "Crowd pressure",
+  "type": "double"
+ },
+ {
+  "code": "rotation_tool",
+  "name": "Cutting tool rotational speed",
+  "type": "double"
+ },
+ {
+  "code": "drillability_strength",
+  "name": "Drillability strength",
+  "type": "double"
+ },
+ {
+  "code": "exponent_method",
+  "name": "Exponent method",
+  "type": "double"
+ },
+ {
+  "code": "fluid_injection_mass_rate",
+  "name": "Fluid injection mass flow rate",
+  "type": "double"
+ },
+ {
+  "code": "fluid_injection_pressure",
+  "name": "Fluid injection pressure",
+  "type": "double"
+ },
+ {
+  "code": "fluid_injection_volume_rate",
+  "name": "Fluid injection volumetric flow rate, pumped inflow",
+  "type": "double"
+ },
+ {
+  "code": "fluid_return_volume_rate",
+  "name": "Fluid return volumetric flow rate, returned outflow",
+  "type": "double"
+ },
+ {
+  "code": "gear_number",
+  "name": "Gear Number",
+  "type": "integer"
+ },
+ {
+  "code": "hammering_pressure",
+  "name": "Hammering pressure",
+  "type": "double"
+ },
+ {
+  "code": "hardness_parameter",
+  "name": "Hardness parameter",
+  "type": "double"
+ },
+ {
+  "code": "holdback_pressure",
+  "name": "Holdback pressure",
+  "type": "double"
+ },
+ {
+  "code": "hydraulic_crowd_pressure",
+  "name": "Hydraulic crowd operating pressure",
+  "type": "double"
+ },
+ {
+  "code": "hydraulic_torque_pressure",
+  "name": "Hydraulic torque operating pressure",
+  "type": "double"
+ },
+ {
+  "code": "injected_fluid_density",
+  "name": "Injected fluid density",
+  "type": "double"
+ },
+ {
+  "code": "injected_fluid_viscosity",
+  "name": "Injected fluid dynamic viscosity",
+  "type": "double"
+ },
+ {
+  "code": "measured_depth",
+  "name": "Measured depth",
+  "type": "double"
+ },
+ {
+  "code": "measured_time",
+  "name": "Measured time",
+  "type": "double"
+ },
+ {
+  "code": "net_crowd_pressure",
+  "name": "Net crowd pressure",
+  "type": "double"
+ },
+ {
+  "code": "event_new_rod",
+  "name": "New rod event",
+  "type": "boolean"
+ },
+ {
+  "code": "penetration_length",
+  "name": "Penetration length",
+  "type": "double"
+ },
+ {
+  "code": "penetration_rate",
+  "name": "Penetration rate",
+  "type": "double"
+ },
+ {
+  "code": "penetration_resistance",
+  "name": "Penetration resistance",
+  "type": "double"
+ },
+ {
+  "code": "rotation_shaft",
+  "name": "Shaft rotational speed",
+  "type": "double"
+ },
+ {
+  "code": "soil_rock_resistance",
+  "name": "Soil-Rock resistance",
+  "type": "double"
+ },
+ {
+  "code": "somerton_index",
+  "name": "Somerton index",
+  "type": "double"
+ },
+ {
+  "code": "specific_energy",
+  "name": "Specific energy",
+  "type": "double"
+ },
+ {
+  "code": "stop_flag",
+  "name": "Stop Flag",
+  "type": "boolean"
+ },
+ {
+  "code": "torque",
+  "name": "Torque",
+  "type": "double"
+ },
+ {
+  "code": "torque_tach",
+  "name": "Torque Tach (%)",
+  "type": "double"
+ },
+ {
+  "code": "vibration_acceleration",
+  "name": "Vibration acceleration",
+  "type": "double"
+ },
+ {
+  "code": "vibration_frequency",
+  "name": "Vibration frequency",
+  "type": "double"
+ },
+ {
+  "code": "drill_rod_weight",
+  "name": "Weight of drill rod or drill string",
+  "type": "double"
+ },
+ {
+  "code": "fluid_temperature",
+  "name": "Fluid temperature",
+  "type": "double"
+ },
+ {
+  "code": "eccentric_rotation",
+  "name": "Eccentric rotation",
+  "type": "boolean"
+ }
+]
