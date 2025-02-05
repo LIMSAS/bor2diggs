@@ -321,33 +321,27 @@ def convert_to_diggs(file_path):
     }
     # 6196289
 
-    index = 1
-    for name, info in bf.metadata.items():
-        if name == "time":
+    for index, column in enumerate(bf.data.columns, 1):
+        if column not in diggs_properties:
             continue
-
-        # bor does not handle EVP well
-        if name == "EVP":
-            continue
-
-        unit = info.get("unit", "-")
 
         property_element = ET.SubElement(
             properties, "Property", {"gml:id": f"prop{index}", "index": str(index)}
         )
-        ET.SubElement(property_element, "propertyName").text = diggs_properties[name][1]
+        ET.SubElement(property_element, "propertyName").text = diggs_properties[column][
+            1
+        ]
         ET.SubElement(property_element, "typeData").text = "double"
 
         ET.SubElement(
             property_element,
             "propertyClass",
             {"codeSpace": "http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml"},
-        ).text = diggs_properties[name][0]
+        ).text = diggs_properties[column][0]
 
+        unit = bf.metadata[column].get("unit", "-")
         if unit != "-":
             ET.SubElement(property_element, "uom").text = get_uom(unit)
-
-        index += 1
 
     # add data values
     data_values = ET.SubElement(
