@@ -345,10 +345,13 @@ def convert_to_diggs(file_path):
             ET.SubElement(property_element, "uom").text = get_uom(unit)
 
     # add data values
+    values = (
+        bf.to_csv(header=False, index=False).strip().replace("\n", "\n                ")
+    )
     data_values = ET.SubElement(
         result_set, "dataValues", {"cs": ",", "ts": " ", "decimal": "."}
     )
-    data_values.text = bf.to_csv(header=False, index=False).strip()
+    data_values.text = values
 
     # add mwd procedure
     ET.SubElement(ET.SubElement(mwd, "procedure"), "MWDProcedure", {"gml:id": "mwd1"})
