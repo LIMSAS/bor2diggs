@@ -299,27 +299,37 @@ def convert_to_diggs(file_path):
     properties = ET.SubElement(property_params, "properties")
 
     diggs_properties = {
-        "DEPTH": ("measured_depth", "Measured depth"),
-        "AS": ("penetration_rate", "Penetration rate"),
-        "RV": ("vibration_acceleration", "Vibration acceleration"),
-        "EVR": ("event_new_rod", "New rod event"),
-        "TP": ("hydraulic_crowd_pressure", "Hydraulic crowd operating pressure"),
-        "TPAF": ("crowd_downward_thrust", "Crowd or downward thrust"),
-        "TQ": ("hydraulic_torque_pressure", "Hydraulic torque operating pressure"),
-        "TQAT": ("torque", "Torque"),
-        "HP": ("holdback_pressure", "Holdback pressure"),
-        "SP": ("hammering_pressure", "Hammering pressure"),
-        "IP": ("fluid_injection_pressure", "Fluid injection pressure"),
+        "DEPTH": ("measured_depth", "Measured depth", "double"),
+        "AS": ("penetration_rate", "Penetration rate", "double"),
+        "RV": ("vibration_acceleration", "Vibration acceleration", "double"),
+        "EVR": ("event_new_rod", "New rod event", "boolean"),
+        "TP": (
+            "hydraulic_crowd_pressure",
+            "Hydraulic crowd operating pressure",
+            "double",
+        ),
+        "TPAF": ("crowd_downward_thrust", "Crowd or downward thrust", "double"),
+        "TQ": (
+            "hydraulic_torque_pressure",
+            "Hydraulic torque operating pressure",
+            "double",
+        ),
+        "TQAT": ("torque", "Torque", "double"),
+        "HP": ("holdback_pressure", "Holdback pressure", "double"),
+        "SP": ("hammering_pressure", "Hammering pressure", "double"),
+        "IP": ("fluid_injection_pressure", "Fluid injection pressure", "double"),
         "IF": (
             "fluid_injection_volume_rate",
             "Fluid injection volumetric flow rate, pumped inflow",
+            "double",
         ),
         "OF": (
             "fluid_return_volume_rate",
             "Fluid return volumetric flow rate, returned outflow",
+            "double",
         ),
-        "RSP": ("rotation_shaft", "Shaft rotational speed"),
-        "GEAR": ("gear_number", "Gear Number"),
+        "RSP": ("rotation_shaft", "Shaft rotational speed", "double"),
+        "GEAR": ("gear_number", "Gear Number", "double"),
     }
 
     for index, column in enumerate(bf.data.columns, 1):
@@ -332,7 +342,7 @@ def convert_to_diggs(file_path):
         ET.SubElement(property_element, "propertyName").text = diggs_properties[column][
             1
         ]
-        ET.SubElement(property_element, "typeData").text = "double"
+        ET.SubElement(property_element, "typeData").text = diggs_properties[column][2]
 
         ET.SubElement(
             property_element,
