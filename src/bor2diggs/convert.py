@@ -296,41 +296,30 @@ def convert_to_diggs(file_path):
     )
     properties = ET.SubElement(property_params, "properties")
 
-    property_codes = {
-        "DEPTH": "measured_depth",
-        "AS": "penetration_rate",
-        "RV": "vibration_acceleration",
-        "EVR": "event_new_rod",
-        "TP": "hydraulic_crowd_pressure",
-        "TPAF": "crowd_downward_thrust",
-        "TQ": "hydraulic_torque_pressure",
-        "TQAT": "torque",
-        "HP": "holdback_pressure",
-        "SP": "hammering_pressure",
-        "IP": "fluid_injection_pressure",
-        "IF": "fluid_injection_volume_rate",
-        "OF": "fluid_return_volume_rate",
-        "RSP": "rotation_shaft",
-        "GEAR": "gear_number",
+    diggs_properties = {
+        "DEPTH": ("measured_depth", "Measured depth"),
+        "AS": ("penetration_rate", "Penetration rate"),
+        "RV": ("vibration_acceleration", "Vibration acceleration"),
+        "EVR": ("event_new_rod", "New rod event"),
+        "TP": ("hydraulic_crowd_pressure", "Hydraulic crowd operating pressure"),
+        "TPAF": ("crowd_downward_thrust", "Crowd or downward thrust"),
+        "TQ": ("hydraulic_torque_pressure", "Hydraulic torque operating pressure"),
+        "TQAT": ("torque", "Torque"),
+        "HP": ("holdback_pressure", "Holdback pressure"),
+        "SP": ("hammering_pressure", "Hammering pressure"),
+        "IP": ("fluid_injection_pressure", "Fluid injection pressure"),
+        "IF": (
+            "fluid_injection_volume_rate",
+            "Fluid injection volumetric flow rate, pumped inflow",
+        ),
+        "OF": (
+            "fluid_return_volume_rate",
+            "Fluid return volumetric flow rate, returned outflow",
+        ),
+        "RSP": ("rotation_shaft", "Shaft rotational speed"),
+        "GEAR": ("gear_number", "Gear Number"),
     }
-
-    property_names = {
-        "DEPTH": "Measured depth",
-        "AS": "Penetration rate",
-        "RV": "Vibration acceleration",
-        "EVR": "New rod event",
-        "TP": "Hydraulic crowd operating pressure",
-        "TPAF": "Crowd or downward thrust",
-        "TQ": "Hydraulic torque operating pressure",
-        "TQAT": "Torque",
-        "HP": "Holdback pressure",
-        "SP": "Hammering pressure",
-        "IP": "Fluid injection pressure",
-        "IF": "Fluid injection volumetric flow rate, pumped inflow",
-        "OF": "Fluid return volumetric flow rate, returned outflow",
-        "RSP": "Shaft rotational speed",
-        "GEAR": "Gear Number",
-    }
+    # 6196289
 
     index = 1
     for name, info in bf.metadata.items():
@@ -346,14 +335,14 @@ def convert_to_diggs(file_path):
         property_element = ET.SubElement(
             properties, "Property", {"gml:id": f"prop{index}", "index": str(index)}
         )
-        ET.SubElement(property_element, "propertyName").text = property_names[name]
+        ET.SubElement(property_element, "propertyName").text = diggs_properties[name][1]
         ET.SubElement(property_element, "typeData").text = "double"
 
         ET.SubElement(
             property_element,
             "propertyClass",
             {"codeSpace": "http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml"},
-        ).text = property_codes.get(name, "missing")
+        ).text = diggs_properties[name][0]
 
         if unit != "-":
             ET.SubElement(property_element, "uom").text = get_uom(unit)
