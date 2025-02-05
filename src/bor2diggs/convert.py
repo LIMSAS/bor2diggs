@@ -332,10 +332,10 @@ def convert_to_diggs(file_path):
         "GEAR": ("gear_number", "Gear Number", "double"),
     }
 
-    for index, column in enumerate(bf.data.columns, 1):
-        if column not in diggs_properties:
-            continue
+    unsupported_properties = set(bf.data.columns) - set(diggs_properties)
+    df = bf.data.drop(columns=unsupported_properties)
 
+    for index, column in enumerate(df.columns, 1):
         property_element = ET.SubElement(
             properties, "Property", {"gml:id": f"prop{index}", "index": str(index)}
         )
@@ -356,7 +356,7 @@ def convert_to_diggs(file_path):
 
     # add data values
     values = (
-        bf.to_csv(header=False, index=False).strip().replace("\n", "\n                ")
+        df.to_csv(header=False, index=False).strip().replace("\n", "\n                ")
     )
     data_values = ET.SubElement(
         result_set, "dataValues", {"cs": ",", "ts": " ", "decimal": "."}
