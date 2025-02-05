@@ -34,12 +34,12 @@
             <projectRef xlink:href="#pr_LIM"/>
             <referencePoint>
                 <PointLocation gml:id="pl_bh_TEST_HOLE_1" srsName="https://www.opengis.net/def/crs-compound?1=http://www.opengis.net/def/crs/EPSG/0/4326&amp;2=http://www.opengis.net/def/crs/EPSG/0/5714" srsDimension="3" uomLabels="deg deg m" axisLabels="latitude longitude height">
-                    <gml:pos>38.850429 -97.619629 378.000000</gml:pos>
+                    <gml:pos>38.8504295 -97.6196289 378.000000</gml:pos>
                 </PointLocation>
             </referencePoint>
             <centerLine>
                 <LinearExtent gml:id="cl_bh_TEST_HOLE_1" srsDimension="3" uomLabels="deg deg m" srsName="https://www.opengis.net/def/crs-compound?1=http://www.opengis.net/def/crs/EPSG/0/4326&amp;2=http://www.opengis.net/def/crs/EPSG/0/5714" axisLabels="latitude longitude height">
-                    <gml:posList>38.850429 -97.619629 378.000000 38.850429 -97.619629 377.442216</gml:posList>
+                    <gml:posList>38.8504295 -97.6196289 378.000000 38.8504295 -97.6196289 377.442216</gml:posList>
                 </LinearExtent>
             </centerLine>
             <linearReferencing>

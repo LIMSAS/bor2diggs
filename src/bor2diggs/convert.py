@@ -116,16 +116,18 @@ def convert_to_diggs(file_path):
     ET.SubElement(borehole, "investigationTarget").text = "Natural Ground"
     ET.SubElement(borehole, "projectRef", {"xlink:href": f"#pr_{project_ref_id}"})
 
-    # Convert coordinate strings to floats and format them
     try:
-        latitude = float(bf.description["position"]["latitude"]["value"])
-        longitude = float(bf.description["position"]["longitude"]["value"])
-        altitude = float(bf.description["position"]["altitude"]["value"])
+        latitude = bf.description["position"]["latitude"]["value"]
+        longitude = bf.description["position"]["longitude"]["value"]
+        altitude = bf.description["position"]["altitude"]["value"]
 
         # Format coordinates to 6 decimal places
-        coord_string = f"{latitude:.6f} {longitude:.6f} {altitude:.6f}"
-        pos_altitude = altitude - depth_in_meter
-        pos_string = f"{coord_string} {latitude:.6f} {longitude:.6f} {pos_altitude:.6f}"
+        coord_string = f"{latitude} {longitude} {altitude}"
+        pos_altitude_float = (
+            float(bf.description["position"]["altitude"]["value"]) - depth_in_meter
+        )
+        pos_altitude = f"{pos_altitude_float:.6f}"
+        pos_string = f"{coord_string} {latitude} {longitude} {pos_altitude}"
     except ValueError:
         # If conversion fails, use a default or log an error
         print("Warning: Invalid coordinate data in header. Using default values.")
@@ -319,7 +321,6 @@ def convert_to_diggs(file_path):
         "RSP": ("rotation_shaft", "Shaft rotational speed"),
         "GEAR": ("gear_number", "Gear Number"),
     }
-    # 6196289
 
     for index, column in enumerate(bf.data.columns, 1):
         if column not in diggs_properties:
