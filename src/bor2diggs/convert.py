@@ -315,7 +315,7 @@ def convert_to_diggs(file_path):
     }
 
     property_names = {
-        "DEPTH": "Measured Depth",
+        "DEPTH": "Measured depth",
         "AS": "Penetration rate",
         "RV": "Vibration acceleration",
         "EVR": "New rod event",
