@@ -32,6 +32,7 @@ test = [
     "pytest-cases",
     "pytest-datafiles",
     "pytest-sugar",
+    "pydiggs",
 ]
 dev = [
     "black",
