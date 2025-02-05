@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Diggs xmlns="http://diggsml.org/schemas/2.6" xmlns:diggs="http://diggsml.org/schemas/2.6" xmlns:diggs_geo="http://diggsml.org/schemas/2.6/geotechnical" xmlns:g3.3="http://www.opengis.net/gml/3.3/ce" xmlns:glr="http://www.opengis.net/gml/3.3/lr" xmlns:glrov="http://www.opengis.net/gml/3.3/lrov" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:witsml="http://www.witsml.org/schemas/131" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://diggsml.org/schemas/2.6 https://diggsml.org/schema-dev/Diggs.xsd" gml:id="BOR-Converter">
+<Diggs xmlns="http://diggsml.org/schemas/2.6" xmlns:diggs="http://diggsml.org/schemas/2.6" xmlns:diggs_geo="http://diggsml.org/schemas/2.6/geotechnical" xmlns:g3.3="http://www.opengis.net/gml/3.3/ce" xmlns:glr="http://www.opengis.net/gml/3.3/lr" xmlns:glrov="http://www.opengis.net/gml/3.3/lrov" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:witsml="http://www.witsml.org/schemas/131" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://diggsml.org/schemas/2.6 https://diggsml.org/schema-dev/Diggs.xsd" gml:id="bor2diggs">
     <documentInformation>
         <DocumentInformation gml:id="di_59650240611100849D.xml">
             <gml:description>Data exported from 59650240611100849D.bor</gml:description>
-            <!-- "The date that this instance file was created" is ambiguous -->
-            <!-- is it the creation date of the xml, now() in code-->
-            <creationDate>2025-04-07T16:36:00+01:00</creationDate>
-            <!-- or the creation of the record by the construction site device, <creation> in the bor ? -->
-            <!-- creationDate>2024-06-11T10:08:49-05:00</creationDate -->
+            <creationDate>2024-06-11T10:08:49-05:00</creationDate>
             <sourceSoftware>
-                <SoftwareApplication gml:id="sa_bor-converter-010">
-                    <gml:name>Bor-Converter</gml:name>
-                    <version>0.1.0</version>
+                <SoftwareApplication gml:id="sa_bor2diggs-beta">
+                    <gml:name>bor2diggs</gml:name>
+                    <version>beta</version>
                 </SoftwareApplication>
             </sourceSoftware>
         </DocumentInformation>
@@ -35,7 +31,7 @@
                 </Role>
             </role>
             <investigationTarget>Natural Ground</investigationTarget>
-            <projectRef xlink:href="#pr_LIM" />
+            <projectRef xlink:href="#pr_LIM"/>
             <referencePoint>
                 <PointLocation gml:id="pl_bh_TEST_HOLE_1" srsName="https://www.opengis.net/def/crs-compound?1=http://www.opengis.net/def/crs/EPSG/0/4326&amp;2=http://www.opengis.net/def/crs/EPSG/0/5714" srsDimension="3" uomLabels="deg deg m" axisLabels="latitude longitude height">
                     <gml:pos>38.8504295 -97.6196289 378.000000</gml:pos>
@@ -49,7 +45,7 @@
             <linearReferencing>
                 <LinearSpatialReferenceSystem gml:id="lr_bh_TEST_HOLE_1">
                     <gml:identifier codeSpace="urn:x-def:authority:DIGGS">urn:x-diggs:def:fi:DIGGSINC:lr_bh_TEST_HOLE_1</gml:identifier>
-                    <glr:linearElement xlink:href="#cl_bh_TEST_HOLE_1" />
+                    <glr:linearElement xlink:href="#cl_bh_TEST_HOLE_1"/>
                     <glr:lrm>
                         <glr:LinearReferencingMethod gml:id="lrm_bh_TEST_HOLE_1">
                             <glr:name>chainage</glr:name>
@@ -87,8 +83,8 @@
         <MeasurementWhileDrilling gml:id="mwd_59650240611100849D">
             <gml:name>MWD_59650240611100849D</gml:name>
             <investigationTarget>Natural Ground</investigationTarget>
-            <projectRef xlink:href="#pr_LIM" />
-            <samplingFeatureRef xlink:href="#bh_TEST_HOLE_1" />
+            <projectRef xlink:href="#pr_LIM"/>
+            <samplingFeatureRef xlink:href="#bh_TEST_HOLE_1"/>
             <outcome>
                 <MWDResult gml:id="mwdr_59650240611100849D">
                     <timeDomain>
@@ -105,54 +101,54 @@
                                 <PropertyParameters gml:id="params1">
                                     <properties>
                                         <Property gml:id="prop1" index="1">
-                                            <propertyName>Measured Depth</propertyName>
+                                            <propertyName>Measured depth</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">measured_depth</propertyClass>
                                             <uom>ft</uom>
                                         </Property>
                                         <Property gml:id="prop2" index="2">
-                                            <propertyName>Rate of Penetration</propertyName>
+                                            <propertyName>Penetration rate</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">penetration_rate</propertyClass>
                                             <uom>ft/min</uom>
                                         </Property>
                                         <Property gml:id="prop3" index="3">
-                                            <propertyName>New Rod Event</propertyName>
+                                            <propertyName>New rod event</propertyName>
                                             <typeData>boolean</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">event_new_rod</propertyClass>
                                         </Property>
                                         <Property gml:id="prop4" index="4">
-                                            <propertyName>Hydraulic Crowd Pressure</propertyName>
+                                            <propertyName>Hydraulic crowd operating pressure</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_crowd_pressure</propertyClass>
                                             <uom>psi</uom>
                                         </Property>
                                         <Property gml:id="prop5" index="5">
-                                            <propertyName>Fluid Injection Pressure</propertyName>
+                                            <propertyName>Fluid injection pressure</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_pressure</propertyClass>
                                             <uom>psi</uom>
                                         </Property>
                                         <Property gml:id="prop6" index="6">
-                                            <propertyName>Hydraulic Torque Pressure</propertyName>
+                                            <propertyName>Hydraulic torque operating pressure</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">hydraulic_torque_pressure</propertyClass>
                                             <uom>psi</uom>
                                         </Property>
                                         <Property gml:id="prop7" index="7">
-                                            <propertyName>Holdback Pressure</propertyName>
+                                            <propertyName>Holdback pressure</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">holdback_pressure</propertyClass>
                                             <uom>psi</uom>
                                         </Property>
                                         <Property gml:id="prop8" index="8">
-                                            <propertyName>Shaft Rotational Speed</propertyName>
+                                            <propertyName>Shaft rotational speed</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">rotation_shaft</propertyClass>
                                             <uom>rpm</uom>
                                         </Property>
                                         <Property gml:id="prop9" index="9">
-                                            <propertyName>Fluid Injection Volume Rate</propertyName>
+                                            <propertyName>Fluid injection volumetric flow rate, pumped inflow</propertyName>
                                             <typeData>double</typeData>
                                             <propertyClass codeSpace="http://diggsml.org/def/codes/DIGGS/0.1/mwd_properties.xml">fluid_injection_volume_rate</propertyClass>
                                             <uom>gal[US]/min</uom>
@@ -219,7 +215,7 @@
                 </MWDResult>
             </outcome>
             <procedure>
-                <MWDProcedure gml:id="mwd1" />
+                <MWDProcedure gml:id="mwd1"/>
             </procedure>
         </MeasurementWhileDrilling>
     </measurement>
