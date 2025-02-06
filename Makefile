@@ -38,7 +38,7 @@ clean-pyc:  ## Remove Python file artifacts
 	find . -name '__pycache__' -exec rm -fr {} +
 
 clean-test:  ## Eemove test and coverage artifacts
-	rm -f .pytest_cache
+	rm -rf .pytest_cache
 
 test:  ## Run tests quickly with the default Python
 	pytest
