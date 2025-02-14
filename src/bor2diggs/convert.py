@@ -119,23 +119,24 @@ def convert_to_diggs(file_path):
     ET.SubElement(borehole, "investigationTarget").text = "Natural Ground"
     ET.SubElement(borehole, "projectRef", {"xlink:href": f"#pr_{project_ref_id}"})
 
-    try:
-        latitude = bf.description["position"]["latitude"]["value"]
-        longitude = bf.description["position"]["longitude"]["value"]
-        altitude = bf.description["position"]["altitude"]["value"]
+    bf_position = bf.description.get(
+        "position",
+        {
+            "longitude": {"@unit": "degree", "value": "0"},
+            "latitude": {"@unit": "degree", "value": "0"},
+            "altitude": {"@unit": "m", "value": "0"},
+        },
+    )
 
-        # Format coordinates to 6 decimal places
-        coord_string = f"{latitude} {longitude} {altitude}"
-        pos_altitude_float = (
-            float(bf.description["position"]["altitude"]["value"]) - depth_in_meter
-        )
-        pos_altitude = f"{pos_altitude_float:.6f}"
-        pos_string = f"{coord_string} {latitude} {longitude} {pos_altitude}"
-    except ValueError:
-        # If conversion fails, use a default or log an error
-        print("Warning: Invalid coordinate data in header. Using default values.")
-        coord_string = "0.000000 0.000000 0.00"
-        pos_string = "{coord_string} {coord_string}"
+    latitude = bf_position["latitude"]["value"]
+    longitude = bf_position["longitude"]["value"]
+    altitude = bf_position["altitude"]["value"]
+
+    # Format coordinates to 6 decimal places
+    coord_string = f"{latitude} {longitude} {altitude}"
+    pos_altitude_float = float(bf_position["altitude"]["value"]) - depth_in_meter
+    pos_altitude = f"{pos_altitude_float:.6f}"
+    pos_string = f"{coord_string} {latitude} {longitude} {pos_altitude}"
 
     # add reference point
     ET.SubElement(
