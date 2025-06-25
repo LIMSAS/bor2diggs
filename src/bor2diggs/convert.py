@@ -26,7 +26,7 @@ def get_uom(unit):
     return codes.get(unit, unit)
 
 
-def convert_to_diggs(file_path):
+def convert_to_diggs(file_path, sa_name="bor2diggs"):
     bf = borfile.read(file_path)
     borehole_ref = bf.description["borehole_ref"]
     project_ref = bf.description["project_ref"].replace(" ", "_")
@@ -55,7 +55,7 @@ def convert_to_diggs(file_path):
             "xmlns:xlink": "http://www.w3.org/1999/xlink",
             "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "xsi:schemaLocation": "http://diggsml.org/schemas/2.6 https://diggsml.org/schema-dev/Diggs.xsd",
-            "gml:id": "bor2diggs",
+            "gml:id": f"{sa_name}",
         },
     )
 
@@ -72,7 +72,7 @@ def convert_to_diggs(file_path):
     ET.SubElement(doc_info_element, "creationDate").text = bf.description["creation"]
 
     # Add source software information
-    sa_name = "bor2diggs"
+    sa_name = f"{sa_name}"
     sa_version = "beta"
     software_application_element = ET.SubElement(
         ET.SubElement(doc_info_element, "sourceSoftware"),
