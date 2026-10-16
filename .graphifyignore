@@ -1,0 +1,6 @@
+.direnv/
+dist/
+.ruff_cache/
+*.log
+tests/data/
+docs/expected_*.xml
